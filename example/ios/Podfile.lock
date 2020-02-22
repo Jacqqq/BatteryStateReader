@@ -1,0 +1,22 @@
+PODS:
+  - battery_state_reader (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - battery_state_reader (from `.symlinks/plugins/battery_state_reader/ios`)
+  - Flutter (from `Flutter`)
+
+EXTERNAL SOURCES:
+  battery_state_reader:
+    :path: ".symlinks/plugins/battery_state_reader/ios"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  battery_state_reader: e0f91ac422f15e22af55d1e681ea56a4abf9f0be
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+
+PODFILE CHECKSUM: 083258d7f5e80b42ea9bfee905fe93049bc04c64
+
+COCOAPODS: 1.8.4
