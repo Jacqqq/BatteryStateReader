@@ -17,4 +17,9 @@ class BatteryStateReader {
         await _channel.invokeMethod('getBatteryPercentage');
     return batteryPercentage;
   }
+
+  static Stream<String> get batteryStateChanged =>
+      EventChannel('battery_state_reader_event_channel')
+          .receiveBroadcastStream()
+          .map((dynamic event) => event);
 }

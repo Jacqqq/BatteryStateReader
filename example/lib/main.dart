@@ -36,14 +36,38 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('BatteryStateReader example app'),
         ),
-        body: Center(
-          child: Text(
-            '$_batteryPercentage%\n\n'
-            '$_batteryStatus',
-            style: TextStyle(fontSize: 64),
-            textAlign: TextAlign.center,
+        body: Stack(children: [
+          Center(
+            child: Text(
+              '$_batteryPercentage%\n\n'
+              '$_batteryStatus',
+              style: TextStyle(fontSize: 64),
+              textAlign: TextAlign.center,
+            ),
           ),
-        ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: StreamBuilder(
+                stream: BatteryStateReader.batteryStateChanged,
+                builder: (context, state) {
+                  Color batteryStateColor;
+                  var batteryState = state.data;
+                  if (batteryState == "discharging" ||
+                      batteryState == "unknown") {
+                    batteryStateColor = Colors.red;
+                  } else {
+                    batteryStateColor = Colors.green;
+                  }
+                  return Text(
+                    batteryState,
+                    style: TextStyle(
+                      fontSize: 64,
+                      color: batteryStateColor,
+                    ),
+                  );
+                }),
+          )
+        ]),
       ),
     );
   }
